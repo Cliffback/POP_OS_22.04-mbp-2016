@@ -4,11 +4,66 @@
 # Need to format this text better 
 
 
-
 ## Sources:
 https://dev.to/cmiranda/linux-on-macbook-pro-2016-1onb
 https://github.com/Dunedan/mbp-2016-linux
 https://gist.github.com/roadrunner2/1289542a748d9a104e7baec6a92f9cd7
+
+
+## RESIZE PARTITIONS
+The POP_OS installer apparently uses a different block size than the macOS disk, at least in my case, making the partitions being listed as 8 times smaller than their real size. This is not an issue after the installation, as the sizes are listed correctly there. However it forces you to make an EFI partition of around 6 GB, which is unfortunate.
+
+I solved this by doing the following.
+Source: https://superuser.com/a/1289122
+
+
+Ideally this should be done from a live usb
+
+    Mount the ESP, if it's not mounted already:
+
+     # mount /dev/nvm0n1p5 /mnt # replace nvm0n1p5 with ESP
+
+    Make a backup of its contents:
+
+     # mkdir ~/esp
+     # rsync -av /mnt/ ~/esp/
+
+    Unmount the ESP:
+
+     # umount /mnt
+
+    Delete and recreate the ESP:
+
+     # gdisk /dev/nvm0n1 # replace nvm0n1 with disk containing ESP
+     p (list partitions)
+     (ensure the ESP is the first partition)
+     d (delete partition)
+     1 (select first partition)
+     n (create partition)
+     Enter (use default partition number, should be 1)
+     Enter (use default first sector, should be 2048)
+     Enter (use default last sector, should be all available space)
+     EF00 (hex code for EFI system partition)
+     w (write changes to disk and exit)
+
+    Format the ESP:
+
+     # partprobe /dev/nvm0n1
+     # mkfs.fat -F32 /dev/nvm0n1p5
+
+    Restore the ESP's contents:
+
+     # mount /dev/nvm0n1p5 /mnt
+     # rsync -av ~/esp/ /mnt
+
+    Update EFI entry in /etc/fstab
+
+     # blkid | grep EFI
+     # nano /etc/fstab
+     PARTUUID=XXXX-XXXX # Replace with PARTUUID of EFI partition from blkid
+
+
+
 
 ## WIFI
 Download: https://gist.githubusercontent.com/cristianmiranda/6f269797b62076c3414c3baa848dda67/raw/6508ff1f7ae10f45756d1c7437619a529f0a00ad/brcmfmac43602-pcie.txt
