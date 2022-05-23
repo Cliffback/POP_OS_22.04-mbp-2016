@@ -93,8 +93,10 @@ Reboot
 
 ## The Changes I've Done
 
-These are the modifications I've done with the ISO. 
-[Useful link for the status of Linux on MacBook Pros](https://github.com/Dunedan/mbp-2016-linux)
+These are the modifications I've done with the ISO.
+Useful links:
+https://github.com/Dunedan/mbp-2016-linux
+https://gist.github.com/roadrunner2/1289542a748d9a104e7baec6a92f9cd7#gistcomment-2164350
 
 ### WiFi
 
