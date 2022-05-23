@@ -130,7 +130,7 @@ git clone https://github.com/PatrickVerner/macbook12-spi-driver.git /usr/src/app
 dkms install -m applespi -v 0.1
 ```
 
-Therr is a bug with the USB drivers, that apparently overrides the TouchBar drivers after booting. This can be mitigated by rebinding usb drivers each boot
+There is a bug with the USB drivers, that apparently overrides the TouchBar drivers after booting. This can be mitigated by rebinding usb drivers each boot
 
 [Source](https://github.com/roadrunner2/macbook12-spi-driver/issues/42)
 
