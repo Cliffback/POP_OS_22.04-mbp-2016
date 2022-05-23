@@ -318,7 +318,8 @@ Uncomment the "spoof_osx_version" line in refind.conf and you'll get access to t
 
 Other methods can be found [here](https://dev.to/cmiranda/linux-on-macbook-pro-2016-1onb)
 
-Blacklist the AMD GPU
+
+Then blacklist the AMD GPU
 
 ```bash
 sudo su
