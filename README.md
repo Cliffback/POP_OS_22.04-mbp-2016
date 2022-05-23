@@ -312,6 +312,12 @@ setxkbmap -option # Remove options currently registered
 
 ### Switch GPU to the internal
 
+Be sure to spoof the machine into thinking it's booting into macOS to get access to the iGPU. The easiest method is to use rEFind.
+
+Uncomment the "spoof_osx_version" line in refind.conf and you'll get access to the iGPU when booting into Pop!_OS.
+
+Other methods can be found [here](https://dev.to/cmiranda/linux-on-macbook-pro-2016-1onb)
+
 Blacklist the AMD GPU
 
 ```bash
