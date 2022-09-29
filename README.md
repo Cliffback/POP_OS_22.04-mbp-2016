@@ -5,6 +5,9 @@ This was done on macOS Monterey, alongside a Bootcamp partition, resulting in a 
 
 I hope that this will save someone from a lot of work, googling around, and reading up on forum posts and discussions. I've gathered everything I have learnt in the following document. I also take no credit for the methods presented below, and have linked to the source below each heading. 
 
+## A Note On Updating
+For me, updating POP!_OS to the current release as of September 2022 breaks the touchbar drivers, and I haven't figured out how to get them back working. I recommend backing up with Timeshift before updating, for an easy way to revert back.
+
 ## Installation
 
 To install, unpack the latest ISO from the releases, and make a bootable USB, using balenaEtcher, rufus or similar tools.
