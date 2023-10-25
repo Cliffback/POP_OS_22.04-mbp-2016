@@ -98,6 +98,8 @@ Reboot
 
 These are the modifications I've done with the ISO.
 
+### UPDATE 2023-10-25
+One of the repos I've used has gone offline, so I've added all external content to this repo, so no need to clone the other repos anymore.
 Useful links:
 
 https://github.com/Dunedan/mbp-2016-linux
